@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGCT | IT Solutions Kigamboni</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0b1c3d; /* Navy */
+            --accent: #00a8e8;  /* Cyan */
+            --gold: #ffb400;    /* Gold */
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background-color: var(--light); }
+
+        /* Mobile Responsive Navigation */
+        nav { 
+            background: var(--white); 
+            padding: 0.8rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            z-index: 1000; 
+        }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: 40px; width: auto; }
+        .logo-text b { color: var(--primary); font-size: 1.2rem; display: block; }
+        .logo-text span { color: var(--accent); font-size: 0.6rem; letter-spacing: 1px; font-weight: 800; }
+
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; }
+
+        /* Hero Section - Mobile Optimized */
+        header { 
+            padding: 60px 5%;
+            background: linear-gradient(rgba(11, 28, 61, 0.9), rgba(11, 28, 61, 0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header h1 { font-size: 2rem; margin-bottom: 15px; line-height: 1.2; }
+        header p { font-size: 1rem; opacity: 0.9; max-width: 500px; margin-bottom: 25px; }
+
+        /* Buttons */
+        .btn { 
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-whatsapp { background: #25D366; color: white; margin-bottom: 10px; width: 100%; max-width: 280px; }
+        .btn-gold { background: var(--gold); color: var(--primary); width: 100%; max-width: 280px; }
+
+        /* Services Grid - Responsive */
+        .section-padding { padding: 50px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { color: var(--primary); font-size: 1.8rem; }
+        
+        .services-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+        .service-card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .service-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .service-card h3 { margin-bottom: 10px; color: var(--primary); }
+        .service-card ul { list-style: none; font-size: 0.9rem; }
+        .service-card ul li { margin-bottom: 5px; padding-left: 20px; position: relative; }
+        .service-card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+
+        /* Contact & Form - Mobile Optimized */
+        .contact-wrapper { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+        .contact-info { background: var(--primary); color: white; padding: 40px 5%; border-radius: 15px; }
+        .contact-info h2 { margin-bottom: 20px; }
+        .contact-info a { color: var(--gold); text-decoration: none; display: block; margin: 15px 0; word-break: break-all; }
+
+        .form-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem;
+        }
+
+        .map-box { width: 100%; height: 250px; border-radius: 10px; margin-top: 20px; border: none; }
+
+        footer { background: #050d1d; color: white; text-align: center; padding: 30px 5%; font-size: 0.8rem; }
+
+        /* Desktop Adjustments */
+        @media (min-width: 992px) {
+            header { padding: 100px 5%; height: 70vh; }
+            header h1 { font-size: 3.5rem; }
+            .contact-wrapper { flex-direction: row; }
+            .contact-info, .form-card { flex: 1; }
+            .btn-whatsapp, .btn-gold { width: auto; }
+        }
+
+        /* Mobile Menu Hide */
+        @media (max-width: 600px) {
+            .nav-links { display: none; } /* Keeps it clean for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-box">
+            <img src="logo.png" alt="LGCT Logo">
+            <div class="logo-text">
+                <b>LGCT</b>
+                <span>TECHNOLOGIES</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Lloyd Graphix & Computer Technologies</h1>
+        <p>Premium IT Infrastructure, System Security & Creative Design Solutions in Kigamboni.</p>
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <a href="https://wa.me/255628788764" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us Now</a>
+            <a href="#contact" class="btn btn-gold">Request a Quote</a>
+        </div>
+    </header>
+
+    <section id="services" class="section-padding">
+        <div class="section-title">
+            <h2>Our Expertise</h2>
+            <p>Specialized solutions for business growth</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-microchip"></i>
+                <h3>IT Maintenance</h3>
+                <ul>
+                    <li>Hardware Repair & Install</li>
+                    <li>Windows, Mac & Linux (Ubuntu)</li>
+                    <li>Drivers & Antivirus Setup</li>
+                    <li>Data Recovery & Backup</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Network & Security</h3>
+                <ul>
+                    <li>Mikrotik & Omada Setup</li>
+                    <li>pfSense/OPNsense Firewalls</li>
+                    <li>VoIP (Sangoma FreePBX)</li>
+                    <li>Business Wi-Fi Solutions</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Digital Services</h3>
+                <ul>
+                    <li>Professional Graphic Design</li>
+                    <li>Domain & Business Emails</li>
+                    <li>System Virtualization</li>
+                    <li>Network Printer Config</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="contact-wrapper">
+            
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Located in <strong>Kigamboni, Dar es Salaam</strong>. We provide on-site and remote support.</p>
+                
+                <a href="mailto:walidaman0018@gmail.com"><i class="fas fa-envelope"></i> walidaman0018@gmail.com</a>
+                <a href="tel:+255628788764"><i class="fas fa-phone"></i> +255 628 788 764</a>
+                
+                <iframe class="map-box" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63406.45667310344!2d39.3039145!3d-6.8481119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4a754117079d%3A0x8e8a715f2066d92e!2sKigamboni%2C%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1714920000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="form-card">
+                <!-- Change "YOUR_FORM_ID" after signing up at Formspree.io -->
+                <form action="https://formspree.io/f/mlgzblwv" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="Your Full Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required placeholder="yourname@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Needed Service</label>
+                        <select name="service">
+                            <option>Networking / Mikrotik</option>
+                            <option>Hardware Repair</option>
+                            <option>Graphic Design</option>
+                            <option>VoIP / PBX</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="4" required placeholder="How can we help?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold" style="max-width: 100%;">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LGCT - Lloyd Graphix & Computer Technologies.<br>Kigamboni, Dar es Salaam, Tanzania.</p>
+    </footer>
+
+</body>
+</html>
